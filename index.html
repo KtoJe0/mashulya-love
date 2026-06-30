@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Для Машули ??</title>
+
+<style>
+body {
+    margin:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:white;
+    font-family:Arial;
+}
+
+.box {
+    width:520px;            
+    max-width:90%;           
+    background:pink;
+    border-radius:20px;
+    padding:30px 35px;       
+    text-align:center;
+    position:relative;
+}
+
+h3 {
+    font-size:20px;
+    line-height:1.6;
+    margin-bottom:50px;
+    color:#333;
+}
+
+/* экраны */
+#screen2, #screen3 {
+    display:none;
+}
+
+button {
+    padding:10px 20px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    position:absolute;
+}
+
+#yes { left:80px; bottom:20px; background:#ff4d88; color:white; }
+#no { right:80px; bottom:20px; }
+
+.pet {
+    position:absolute;
+    font-size:35px;
+}
+
+.pet1 { left:-50px; top:10px; }
+.pet2 { right:-50px; bottom:10px; }
+</style>
+</head>
+
+<body>
+
+<audio id="music" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" loop></audio>
+
+<!-- ЭКРАН 1 -->
+<div id="screen1" class="box">
+
+    <div class="pet pet1">????</div>
+    <div class="pet pet2">????</div>
+
+    <h3>Приветик, Машуля! Ты самая прекрасная, и я тебя безумно люблю ??</h3>
+
+    <button id="yes">Да</button>
+    <button id="no">Нет</button>
+</div>
+
+<!-- ЭКРАН 2 -->
+<div id="screen2" class="box">
+    <div class="pet">????</div>
+    <h1>Я знал, ты самая лучшая! ??</h1>
+    <button onclick="toScreen3()" style="position:static; margin-top:20px;">Далее ></button>
+</div>
+
+<!-- ЭКРАН 3 -->
+<div id="screen3" class="box">
+    <div class="pet pet1">????</div>
+    <div class="pet pet2">????</div>
+
+    <p>
+    Я не могу даже представить, что будет, если потеряю тебя полностью.
+
+    
+
+Как же я не хочу этого...
+
+    
+
+Я знаю, что смогу сделать тебя счастливой и самой любимой. Просто поверь мне. Ты увидишь это.
+
+    
+
+Это был самый важный урок в моей жизни, и я никогда больше не допущу подобного.
+
+    
+
+Я тебя люблю ??
+    </p>
+
+    <button onclick="alert('Обнимаю тебя ??')" style="position:static; margin-top:20px;">
+        Обнять ??
+    </button>
+</div>
+
+<script>
+const noBtn = document.getElementById("no");
+const yesBtn = document.getElementById("yes");
+const music = document.getElementById("music");
+
+// убегающая кнопка
+noBtn.onmouseover = function() {
+    noBtn.style.left = Math.random()*300 + "px";
+    noBtn.style.top = Math.random()*200 + "px";
+};
+
+// кнопка ДА
+yesBtn.onclick = function() {
+    music.play();
+
+    document.getElementById("screen1").style.display = "none";
+    document.getElementById("screen2").style.display = "block";
+};
+
+// экран 3
+function toScreen3(){
+    document.getElementById("screen2").style.display = "none";
+    document.getElementById("screen3").style.display = "block";
+}
+</script>
+
+</body>
+</html>
